@@ -28,11 +28,11 @@ export default function NinjaInformaticsApp() {
       case 'home':
         return <HomePage navigateTo={navigateTo} />
       case 'cd4lims':
-        return <CD4LIMSPage />
+        return <CD4LIMSPage navigateTo={navigateTo} />
       case 'aboutus':
         return <AboutUsPage navigateTo={navigateTo} />
       case 'contactus':
-        return <ContactUsPage />
+        return <ContactUsPage navigateTo={navigateTo} />
       default:
         return <HomePage navigateTo={navigateTo} />
     }
