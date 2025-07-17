@@ -12,6 +12,14 @@ export default function NinjaInformaticsApp() {
   const [currentPage, setCurrentPage] = useState("home")
 
   const navigateTo = (page: string) => {
+    // Only scroll to top if we're actually changing pages
+    if (page !== currentPage) {
+      // Smooth scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
     setCurrentPage(page)
   }
 
