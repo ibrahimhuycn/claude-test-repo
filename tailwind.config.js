@@ -73,7 +73,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          'Ubuntu', 
+          'var(--font-ubuntu)', 
           'ui-sans-serif', 
           'system-ui', 
           '-apple-system', 
@@ -83,23 +83,10 @@ module.exports = {
           '"Helvetica Neue"', 
           'Arial', 
           '"Noto Sans"', 
-          'sans-serif', 
-          '"Apple Color Emoji"', 
-          '"Segoe UI Emoji"', 
-          '"Segoe UI Symbol"', 
-          '"Noto Color Emoji"'
-        ],
-        serif: [
-          'Ubuntu', 
-          'ui-serif', 
-          'Georgia', 
-          'Cambria', 
-          '"Times New Roman"', 
-          'Times', 
-          'serif'
+          'sans-serif'
         ],
         mono: [
-          '"Ubuntu Mono"', 
+          'var(--font-ubuntu-mono)', 
           'ui-monospace', 
           'SFMono-Regular', 
           '"SF Mono"', 
