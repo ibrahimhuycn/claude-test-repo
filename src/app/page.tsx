@@ -18,25 +18,30 @@ export default function NinjaInformaticsApp() {
     }
   }
 
-  // Robust scroll-to-top implementation
+  // Enhanced smooth scroll-to-top that works reliably
   useEffect(() => {
-    // Multiple scroll attempts with different timings to ensure it works
-    const scrollToTop = () => {
-      // Immediate scroll (for fast pages like Home)
-      window.scrollTo({ top: 0, behavior: 'instant' })
+    const smoothScrollToTop = () => {
+      // First attempt: immediate smooth scroll
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       
-      // Follow up with smooth scroll after content loads
+      // Second attempt: after content has time to render
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, 100)
+        // Only scroll again if we're not already at the top
+        if (window.scrollY > 50) {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+      }, 150)
       
-      // Final fallback scroll for slower loading content
+      // Final attempt: ensure we're at the top after all content loads
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, 300)
+        // Only scroll if still not at top
+        if (window.scrollY > 50) {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+      }, 400)
     }
 
-    scrollToTop()
+    smoothScrollToTop()
   }, [currentPage])
 
   const renderCurrentPage = () => {
