@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import HomePage from "@/components/pages/home-page"
@@ -10,7 +10,6 @@ import ContactUsPage from "@/components/pages/contact-us-page"
 
 export default function NinjaInformaticsApp() {
   const [currentPage, setCurrentPage] = useState("home")
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const navigateTo = (page: string) => {
     // Only proceed if we're actually changing pages
@@ -19,53 +18,15 @@ export default function NinjaInformaticsApp() {
     }
   }
 
-  // Bulletproof scroll-to-top solution
+  // Simple, reliable instant scroll-to-top
   useEffect(() => {
-    // Clear any existing timeout
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current)
-    }
-
-    // Force scroll to top with multiple strategies
-    const scrollToTopReliably = () => {
-      // Strategy 1: Immediate smooth scroll
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      
-      // Strategy 2: Backup after React renders
-      scrollTimeoutRef.current = setTimeout(() => {
-        if (window.scrollY > 10) {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
-      }, 100)
-      
-      // Strategy 3: Final guarantee after all content loads
-      scrollTimeoutRef.current = setTimeout(() => {
-        if (window.scrollY > 10) {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
-      }, 300)
-      
-      // Strategy 4: Absolute final backup (instant if smooth fails)
-      scrollTimeoutRef.current = setTimeout(() => {
-        if (window.scrollY > 10) {
-          window.scrollTo({ top: 0, behavior: 'instant' })
-          // Follow up with smooth for visual feedback
-          setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-          }, 50)
-        }
-      }, 600)
-    }
-
-    // Execute scroll strategy
-    scrollToTopReliably()
-
-    // Cleanup timeout on unmount
-    return () => {
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current)
-      }
-    }
+    // Instant scroll - reliable and consistent
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    
+    // Follow up to ensure we're at the top
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }, 50)
   }, [currentPage])
 
   const renderCurrentPage = () => {
