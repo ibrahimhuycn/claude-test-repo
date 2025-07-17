@@ -34,38 +34,38 @@ export default function Header({ currentPage, navigateTo }: HeaderProps) {
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuLink 
-            className={`${navigationMenuTriggerStyle()} cursor-pointer ${currentPage === 'home' ? 'bg-accent text-accent-foreground' : ''}`}
+            className={`${navigationMenuTriggerStyle()} cursor-pointer flex items-center justify-center ${currentPage === 'home' ? 'bg-accent text-accent-foreground' : ''}`}
             onClick={() => navigateTo('home')}
           >
-            <Home className="mr-2 h-4 w-4" />
-            Home
+            <Home className="mr-2 h-4 w-4 flex-shrink-0" />
+            <span>Home</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink 
-            className={`${navigationMenuTriggerStyle()} cursor-pointer ${currentPage === 'cd4lims' ? 'bg-accent text-accent-foreground' : ''}`}
+            className={`${navigationMenuTriggerStyle()} cursor-pointer flex items-center justify-center ${currentPage === 'cd4lims' ? 'bg-accent text-accent-foreground' : ''}`}
             onClick={() => navigateTo('cd4lims')}
           >
-            <Database className="mr-2 h-4 w-4" />
-            CD4 LIMS
+            <Database className="mr-2 h-4 w-4 flex-shrink-0" />
+            <span>CD4 LIMS</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink 
-            className={`${navigationMenuTriggerStyle()} cursor-pointer ${currentPage === 'aboutus' ? 'bg-accent text-accent-foreground' : ''}`}
+            className={`${navigationMenuTriggerStyle()} cursor-pointer flex items-center justify-center ${currentPage === 'aboutus' ? 'bg-accent text-accent-foreground' : ''}`}
             onClick={() => navigateTo('aboutus')}
           >
-            <Users className="mr-2 h-4 w-4" />
-            About Us
+            <Users className="mr-2 h-4 w-4 flex-shrink-0" />
+            <span>About Us</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink 
-            className={`${navigationMenuTriggerStyle()} cursor-pointer ${currentPage === 'contactus' ? 'bg-accent text-accent-foreground' : ''}`}
+            className={`${navigationMenuTriggerStyle()} cursor-pointer flex items-center justify-center ${currentPage === 'contactus' ? 'bg-accent text-accent-foreground' : ''}`}
             onClick={() => navigateTo('contactus')}
           >
-            <Phone className="mr-2 h-4 w-4" />
-            Contact Us
+            <Phone className="mr-2 h-4 w-4 flex-shrink-0" />
+            <span>Contact Us</span>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -86,28 +86,28 @@ export default function Header({ currentPage, navigateTo }: HeaderProps) {
             onClick={() => handleNavigate('home')}
             className={`flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md text-left transition-colors ${currentPage === 'home' ? 'bg-accent text-accent-foreground' : 'hover:bg-accent hover:text-accent-foreground'}`}
           >
-            <Home className="h-4 w-4" />
+            <Home className="h-4 w-4 flex-shrink-0" />
             <span>Home</span>
           </button>
           <button 
             onClick={() => handleNavigate('cd4lims')}
             className={`flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md text-left transition-colors ${currentPage === 'cd4lims' ? 'bg-accent text-accent-foreground' : 'hover:bg-accent hover:text-accent-foreground'}`}
           >
-            <Database className="h-4 w-4" />
+            <Database className="h-4 w-4 flex-shrink-0" />
             <span>CD4 LIMS</span>
           </button>
           <button 
             onClick={() => handleNavigate('aboutus')}
             className={`flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md text-left transition-colors ${currentPage === 'aboutus' ? 'bg-accent text-accent-foreground' : 'hover:bg-accent hover:text-accent-foreground'}`}
           >
-            <Users className="h-4 w-4" />
+            <Users className="h-4 w-4 flex-shrink-0" />
             <span>About Us</span>
           </button>
           <button 
             onClick={() => handleNavigate('contactus')}
             className={`flex items-center space-x-3 px-3 py-2 text-sm font-medium rounded-md text-left transition-colors ${currentPage === 'contactus' ? 'bg-accent text-accent-foreground' : 'hover:bg-accent hover:text-accent-foreground'}`}
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4 flex-shrink-0" />
             <span>Contact Us</span>
           </button>
         </div>
