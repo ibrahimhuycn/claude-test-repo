@@ -1,6 +1,7 @@
-import { Phone, Mail, Building, ChevronRight } from "lucide-react"
+import { Phone, Mail, Building, ChevronRight, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import DemoRequestDialog from "@/components/demo-request-dialog"
 
 interface ContactUsPageProps {
   navigateTo: (page: string) => void
@@ -62,12 +63,16 @@ export default function ContactUsPage({ navigateTo }: ContactUsPageProps) {
                   </div>
                 </div>
 
-                {/* Contact Form Button */}
+                {/* Demo Request Button */}
                 <div className="pt-4 text-center">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Get in Touch – Fill the Form
-                  </Button>
+                  <DemoRequestDialog 
+                    trigger={
+                      <Button size="lg" className="w-full sm:w-auto">
+                        <Eye className="mr-2 h-4 w-4" />
+                        Get in Touch – Fill the Form
+                      </Button>
+                    }
+                  />
                 </div>
               </div>
             </CardContent>
@@ -84,6 +89,14 @@ export default function ContactUsPage({ navigateTo }: ContactUsPageProps) {
                 Learn About CD4 LIMS
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
+              <DemoRequestDialog 
+                trigger={
+                  <Button variant="outline" size="lg">
+                    <Eye className="mr-2 h-4 w-4" />
+                    Book a Demo
+                  </Button>
+                }
+              />
               <Button 
                 variant="outline" 
                 size="lg"
