@@ -12,7 +12,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Eye } from "lucide-react"
 
@@ -115,7 +114,9 @@ export default function DemoRequestDialog({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Fullname */}
             <div className="space-y-2">
-              <Label htmlFor="fullname">Fullname:</Label>
+              <label htmlFor="fullname" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Fullname:
+              </label>
               <Input
                 id="fullname"
                 placeholder="Fullname"
@@ -127,7 +128,9 @@ export default function DemoRequestDialog({
 
             {/* Institution */}
             <div className="space-y-2">
-              <Label htmlFor="institution">Institution:</Label>
+              <label htmlFor="institution" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Institution:
+              </label>
               <Input
                 id="institution"
                 placeholder="Institution"
@@ -139,7 +142,9 @@ export default function DemoRequestDialog({
 
             {/* Designation */}
             <div className="space-y-2">
-              <Label htmlFor="designation">Designation:</Label>
+              <label htmlFor="designation" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Designation:
+              </label>
               <Input
                 id="designation"
                 placeholder="Designation"
@@ -150,7 +155,9 @@ export default function DemoRequestDialog({
 
             {/* Email */}
             <div className="space-y-2">
-              <Label htmlFor="email">Email:</Label>
+              <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                Email:
+              </label>
               <Input
                 id="email"
                 type="email"
@@ -164,7 +171,9 @@ export default function DemoRequestDialog({
 
           {/* Phone Number - Full Width */}
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number:</Label>
+            <label htmlFor="phone" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Phone Number:
+            </label>
             <Input
               id="phone"
               type="tel"
@@ -177,7 +186,9 @@ export default function DemoRequestDialog({
 
           {/* Request Details */}
           <div className="space-y-2">
-            <Label htmlFor="request">Your request here... max 200 characters</Label>
+            <label htmlFor="request" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+              Your request here... max 200 characters
+            </label>
             <Textarea
               id="request"
               placeholder="Your request here... max 200 characters"
