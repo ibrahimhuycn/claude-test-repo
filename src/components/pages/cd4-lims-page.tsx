@@ -9,6 +9,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import DemoRequestDialog from "@/components/demo-request-dialog"
 
 const FeatureCard = ({ title, features, icon }: { title: string; features: string[]; icon: React.ReactNode }) => (
   <Card className="h-full hover:shadow-lg transition-shadow duration-200">
@@ -70,13 +71,14 @@ export default function CD4LIMSPage({ navigateTo }: CD4LIMSPageProps) {
             CD4+ cell is a type of lymphocyte called T-Helper cell. This software is meant to be a great help for clinical laboratory professionals and hence the name CD4.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <Button 
-              size="lg"
-              onClick={() => navigateTo('contactus')}
-            >
-              <Eye className="mr-2 h-4 w-4" />
-              Book a Demo
-            </Button>
+            <DemoRequestDialog 
+              trigger={
+                <Button size="lg">
+                  <Eye className="mr-2 h-4 w-4" />
+                  Book a Demo
+                </Button>
+              }
+            />
             <Button 
               variant="outline" 
               size="lg"
@@ -108,14 +110,14 @@ export default function CD4LIMSPage({ navigateTo }: CD4LIMSPageProps) {
             <p className="max-w-3xl text-lg text-muted-foreground">
               The following is a brief summary of features present in CD4 Laboratory Information Management System. Please book a demo session or contact us if you would like to know more about CD4
             </p>
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => navigateTo('contactus')}
-            >
-              <Eye className="mr-2 h-4 w-4" />
-              Book a Demo
-            </Button>
+            <DemoRequestDialog 
+              trigger={
+                <Button variant="outline" size="lg">
+                  <Eye className="mr-2 h-4 w-4" />
+                  Book a Demo
+                </Button>
+              }
+            />
           </div>
         </div>
       </section>
@@ -154,13 +156,14 @@ export default function CD4LIMSPage({ navigateTo }: CD4LIMSPageProps) {
               Contact us today to learn more about how CD4 LIMS can streamline your laboratory operations and enhance patient care.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Button 
-                size="lg"
-                onClick={() => navigateTo('contactus')}
-              >
-                <Eye className="mr-2 h-4 w-4" />
-                Book a Demo
-              </Button>
+              <DemoRequestDialog 
+                trigger={
+                  <Button size="lg">
+                    <Eye className="mr-2 h-4 w-4" />
+                    Book a Demo
+                  </Button>
+                }
+              />
               <Button 
                 variant="outline" 
                 size="lg"
