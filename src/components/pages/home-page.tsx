@@ -3,12 +3,12 @@ import {
   Shield,
   Activity,
   Globe,
-  Eye,
   ChevronRight
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import DemoRequestDialog from "@/components/demo-request-dialog"
 
 interface HomePageProps {
   navigateTo: (page: string) => void
@@ -89,10 +89,13 @@ export default function HomePage({ navigateTo }: HomePageProps) {
               Discover CD4 LIMS
               <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button variant="outline" size="lg" className="px-8">
-              <Eye className="mr-2 h-4 w-4" />
-              Book a Demo
-            </Button>
+            <DemoRequestDialog 
+              trigger={
+                <Button variant="outline" size="lg" className="px-8">
+                  Book a Demo
+                </Button>
+              }
+            />
           </div>
         </div>
       </section>
@@ -147,10 +150,7 @@ export default function HomePage({ navigateTo }: HomePageProps) {
                 Discover CD4 LIMS
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg">
-                <Eye className="mr-2 h-4 w-4" />
-                Book a Demo
-              </Button>
+              <DemoRequestDialog />
             </div>
           </div>
           
@@ -188,10 +188,7 @@ export default function HomePage({ navigateTo }: HomePageProps) {
                 Discover CD4 LIMS
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" size="lg">
-                <Eye className="mr-2 h-4 w-4" />
-                Book a Demo
-              </Button>
+              <DemoRequestDialog />
             </div>
           </div>
           
