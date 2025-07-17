@@ -1,8 +1,12 @@
-import { Phone, Mail, Building } from "lucide-react"
+import { Phone, Mail, Building, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
-export default function ContactUsPage() {
+interface ContactUsPageProps {
+  navigateTo: (page: string) => void
+}
+
+export default function ContactUsPage({ navigateTo }: ContactUsPageProps) {
   return (
     <div>
       {/* Contact Section */}
@@ -68,6 +72,28 @@ export default function ContactUsPage() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Navigation Section */}
+          <div className="text-center space-y-6">
+            <h2 className="text-2xl font-bold">Explore More</h2>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button 
+                size="lg"
+                onClick={() => navigateTo('cd4lims')}
+              >
+                Learn About CD4 LIMS
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => navigateTo('home')}
+              >
+                Back to Home
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
