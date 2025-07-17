@@ -12,6 +12,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import DemoRequestDialog from "@/components/demo-request-dialog"
 
 interface AboutUsPageProps {
   navigateTo: (page: string) => void
@@ -154,6 +155,14 @@ export default function AboutUsPage({ navigateTo }: AboutUsPageProps) {
                 Discover CD4 LIMS
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
+              <DemoRequestDialog 
+                trigger={
+                  <Button variant="outline" size="lg">
+                    <Eye className="mr-2 h-4 w-4" />
+                    Book a Demo
+                  </Button>
+                }
+              />
               <Button 
                 variant="outline" 
                 size="lg"
