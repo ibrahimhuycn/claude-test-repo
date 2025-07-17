@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { fontClasses } from '@/lib/fonts'
 
 export const metadata: Metadata = {
   title: 'Ninja Informatics Solutions - Advanced Laboratory Information Management',
@@ -13,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={fontClasses.body}>{children}</body>
     </html>
   )
 }
