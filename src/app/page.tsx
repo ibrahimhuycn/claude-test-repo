@@ -12,30 +12,31 @@ export default function NinjaInformaticsApp() {
   const [currentPage, setCurrentPage] = useState("home")
 
   const navigateTo = (page: string) => {
-    // Only scroll to top if we're actually changing pages
+    // Only proceed if we're actually changing pages
     if (page !== currentPage) {
-      // First update the page
-      setCurrentPage(page)
-      
-      // Then scroll to top after a tiny delay to ensure the page has rendered
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        })
-      }, 50)
-    } else {
       setCurrentPage(page)
     }
   }
 
-  // Alternative: use useEffect to scroll when page changes
+  // Robust scroll-to-top implementation
   useEffect(() => {
-    // Scroll to top whenever the page changes
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+    // Multiple scroll attempts with different timings to ensure it works
+    const scrollToTop = () => {
+      // Immediate scroll (for fast pages like Home)
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      
+      // Follow up with smooth scroll after content loads
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
+      
+      // Final fallback scroll for slower loading content
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 300)
+    }
+
+    scrollToTop()
   }, [currentPage])
 
   const renderCurrentPage = () => {
