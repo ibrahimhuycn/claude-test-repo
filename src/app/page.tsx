@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 import HomePage from "@/components/pages/home-page"
@@ -14,14 +14,29 @@ export default function NinjaInformaticsApp() {
   const navigateTo = (page: string) => {
     // Only scroll to top if we're actually changing pages
     if (page !== currentPage) {
-      // Smooth scroll to top
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
+      // First update the page
+      setCurrentPage(page)
+      
+      // Then scroll to top after a tiny delay to ensure the page has rendered
+      setTimeout(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }, 50)
+    } else {
+      setCurrentPage(page)
     }
-    setCurrentPage(page)
   }
+
+  // Alternative: use useEffect to scroll when page changes
+  useEffect(() => {
+    // Scroll to top whenever the page changes
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [currentPage])
 
   const renderCurrentPage = () => {
     switch (currentPage) {
